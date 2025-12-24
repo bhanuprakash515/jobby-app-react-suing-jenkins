@@ -1,19 +1,27 @@
 pipeline{
     agent any
+    tools{
+        nodejs 'node18'
+    }
  
     stages {
-
-        stage('Install Dependencies') {
-            steps {
-                sh 'npm install'
+        stage('CheckOut Code') {
+            steps{
+                git 'https://github.com/bhanuprakash515/jobby-app-react-suing-jenkins.git'
             }
         }
 
-        stage('Node Version') {
-            steps {
-                sh 'npm -v'
+        stage('install Dependencies'){
+            steps{
+                sh 'npm install'
             }
-        }  
+        }
+        stage("Chack Version"){
+            steps{
+                sh 'node -v'
+            }
+        }
+
         
     }
 }
