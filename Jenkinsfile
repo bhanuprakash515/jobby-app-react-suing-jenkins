@@ -22,10 +22,7 @@ pipeline{
             steps {
                 sh 'npm -v'
             }
-        }
-
-    
+        }  
         
     }
-
 }
